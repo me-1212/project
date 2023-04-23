@@ -21,12 +21,10 @@
                     <p style = "text-align: center;"> Here is the login form. Please, insert your username and password correctly.</p>
                     <form action = "log.php" method = "post">
                     <div class="form-row">
-                        <p class="error">
-                            <?php
-                                if(isset($_GET['error']))
-                                    echo $_GET['error'];
-                            ?>
-                        </p>
+                                 <?php
+                                    if(isset($_GET['error'])){ ?>
+                                        <p class="error"> <?php echo $_GET['error']; ?> </p>
+                                <?php }?>   
                         </div>
                         <div class="form-row">
                             <div class="input-group">

@@ -26,8 +26,8 @@
           <li><a href="news.php">News</a></li>
           <li class="dropdown"><a href="#"><span>Resources</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="res.php">Reading materials</a></li>
-              <li><a href="res.php">Last exams</a></li>
+              <li><a href="res.php#reading">Reading materials</a></li>
+              <li><a href="res.php#exam">Last exams</a></li>
             </ul>
           </li>
           <li><a href="about.html">About</a></li>
@@ -82,7 +82,7 @@
 
             <time datetime="2020-01-01" style = "display: block; margin-top: -15px; margin-bottom: 10px; font-style: italic; font-size: 14px;">
               <?php
-                echo $row["Date"];
+                echo $row["Dat"];
               ?>
             </time>
 
@@ -121,7 +121,7 @@
                 </a></h4>
                 <time datetime="2020-01-01">
                   <?php
-                    echo $row["Date"];
+                    echo $row["Dat"];
                   ?>
                 </time>
                 <?php
