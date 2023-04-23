@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2023 at 06:02 PM
+-- Generation Time: Apr 23, 2023 at 07:14 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -42,6 +42,37 @@ INSERT INTO `account` (`username`, `pass`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `exam`
+--
+
+CREATE TABLE `exam` (
+  `Exam_id` varchar(7) NOT NULL,
+  `Exam_name` varchar(35) NOT NULL,
+  `No_of_ques` int(11) NOT NULL,
+  `Stream` varchar(11) NOT NULL,
+  `Time` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `exam`
+--
+
+INSERT INTO `exam` (`Exam_id`, `Exam_name`, `No_of_ques`, `Stream`, `Time`) VALUES
+('Eng', 'English', 5, 'Both', 120),
+('Sat', 'Scholastic Aptitude Test', 5, 'Both', 120),
+('Math_N', 'Mathematics for Natural Science', 3, 'Natural', 180),
+('Math_S', 'Mathematics for Social Science', 3, 'Social', 180),
+('Bio', 'Biology', 5, 'Natural', 120),
+('Chm', 'Chemistry', 5, 'Natural', 120),
+('Phy', 'Physics', 3, 'Natural', 120),
+('Civ', 'Civics and Ethical Education', 5, 'Both', 120),
+('His', 'History', 5, 'Social', 120),
+('Geo', 'Geography', 5, 'Social', 120),
+('Bus', 'Business', 5, 'Social', 120);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `news`
 --
 
@@ -61,6 +92,38 @@ INSERT INTO `news` (`News_id`, `Title`, `Full`, `Dat`, `Admin_id`) VALUES
 (1, 'በ2014 ዓ.ም 12ኛ ክፍል የላቀ ዉጤት ላመጡ ስለተሰጠዉ የዉጪ ሀገር የትምህርት እድል /Scholarship / ', 'በ2014 ዓ.ም የ12ኛ ክፍል ፈተና ከተፈተኑ ተማሪዎች መካከል 3.3 በመቶ ተማሪዎች ብቻ ወደዩኒቨርስቲ የሚያስገባቸዉን 50/በመቶና በላይ ዉጤት ያስመዘገቡ ሲሆን ከነዚህ መካከል 263 የተፈጥሮ ሳይንስ ተማሪዎች 600/700 እንዲሁም 10 የማህበራዊ ሳይንስ ተማሪዎች 500/600 በማምጣት የሀገሪ\r\n\r\nእነዚህ 273 ተማሪዎች የካቲት 21/2015 ዓም በሀገር አቀፍ ደረጃ የኢፌዲሪ ጠቅላይ ሚኒስትር ዶ/ር ዓብይ አህመድ፣ የትምህርት ሚኒስትሩ ፕሮፌሰር ብርሃኑ ነጋና የአጠቃላይ ትምህርት ዘርፍ ሚኒስትር ዴኤታ ዶ/ር ፋንታ ማንደፍሮ እጅ የእዉቅናና ሽልማት ተቀብለዋል፡፡\r\nበዚሁ እለት በክቡር ጠቅላይ ሚኒስትር ዓብይ አህመድ ለእነዚህ ተማሪዎች በተባበሩት አረብ ኤምሬትስ የትምህርት እድል/ Scholarship / እንደተገኘ ተገልጸል፡፡\r\nበ2014 ዓም. የተጀመረዉ የፈተና ስርዓት ለዉጥ እንዲጠናከርና መንግስት ለትምህርት ዘርፉ የሰጠዉን ልዩ ትኩረት ለማሳየት ጠቅላይ ሚኒስትሩ ባደረጉት ጥረት ከወዳጅ አገራት የተገኘዉ ይህ የትምህርት እድል ተማሪዎች ከመስከረም/2016 ዓም ጀምሮ እንዲማሩ ተመቻችቷል፡፡\r\nወደዉጪ እስኪሄዱ ድረስ ያሉትን ግዜያት የእንግሊዝኛ ቋንቋ ማሻሻያ ትምህርት በመማርና ሌሎች ለወደፊታቸዉ የሚያግዙ ቅድመ-ዝግጅቶችን እያደረጉ እንድቆዩ የሚሰራ ይሆናል፡፡\r\nእዚህ ላይ መታወቅ ያለበት አንድ ጉዳይ እነዚህ ተማሪዎች የተፈጠረላቸዉ እድል በቀጣይ እየተፈጠረ ላለዉ በዉድድር ላይ የተመሰረተ ዓለም እኛንም በዓለም አቀፍ ደረጃ ተወዳዳሪ የሚያደርጉ ምሩቃንንና ሳይንትስቶችን ፣ ቴክኖሎጂስቶችን፣ መሪዎችን የመፍጠሪያ ልዩ እድል ነው፡፡\r\nበተጨማሪም ተማሪዎቻችን በሄዱበት የሀገር ስምና ገጽታ ናቸዉ ፡፡ በአቅማቸዉ ተወዳድረዉ በዓለም ደረጃ ስመጥር በሆኑ ዩኒቨርስቲዎች አሸንፈዉ ጥሩ ሆነዉ ተመርቀዉ በተሻለ ዉጤት ሲመጡ ኢትዮጵያ ዉስጥ ትምህርት ምን እንደሚመስል ሌላዉም ዓለም ይገነዘባል፡፡ ወደሀገራቸዉ ተመልሰዉ ሲያገለግሉም በፍጥነት ከድህነት ለመዉጣትና ወደብልጽግና ለመሄድ ለምናደርገዉ ስራ አጋዥ ይሆናል የሚል ፅኑ እምነት አለ፡፡\r\nየተፈጠረዉ የትምህርት ዕድል በጣም ጥሩ እድል ነዉ፡፡ ነገር ግን ዕድሉ ለተፈጠረላቸዉ ተማሪዎች እንደግዴታ የሚወሰድ አይደለም፡፡ በጣም ትልቅ እድል፣ ከፍተኛ ጥረት ተደርጎበት በክቡር በጠቅላይ ሚኒስትር ዶ/ር አብይ አህመድ የተገኘ እድል ነዉ፡፡ በመሆኑም የአንድም ተማሪ እድል ሳይባክን መጠቀም ለሀገር ይጠቅማል፡፡ ይህንን በማድረግ ሂደት ዉስጥ ደግሞ ሁሉም የበኩሉን እንዲወጣ ማድረግ ያስፈልጋል፡፡\r\nይሁን እንጅ ተማሪዎች መማር የምፈልገዉ በሀገር ዉስጥ ባሉ ዩኒቨርስቲዎች ነዉ ብለዉ ካሰቡ የሚገደዱበት ሁኔታ የለም፡፡', '2023-04-12', ''),
 (2, '“ጠንክረን በተማሪዎቹ ላይ በመስራታችን ለተከታታይ አስር ዓመታት በውጤታማነት መዝለቅ ችለናል” የወላይታ ሊቃ 2ኛ ደረጃ ትምህር ቤት ርዕሰ መምህር አቶ ማቱሳላህ፡፡', 'የወላይታ ሊቃ 2ኛ ደረጃ ትምህርት ቤት ርእሰ መምህር አቶ ማቱሳላህ ጎና ጠንክረን ተማሪዎች ላይ በመስራታችን ባለፉት አስር ዓመታት በ12ኛ ክፍል ያስፈተናቸውን ተማሪዎች በሙሉ ወደ ዩኒቨርሲቲ በማስገባት በውጤታማነት መዝለቅ መቻላቸውን ገለፁ፡፡\r\n\r\nየወላይታ ልማት ማህበር በ2000 ዓ.ም ትምህርት ቤቱን በመመስረት ከ5ኛ እስከ 7ኛ ክፍል ያሉ ተማሪዎችን በመቀበል የመማር ማስተማር ስራውን በመጀመር የመጀመሪያዎቹን የ12ኛ ክፍል ተማሪዎች በ2005 ዓ.ም ማስፈተኑን ርእሰ መምህሩ ገልፀዋል።\r\nትምህርት ቤቱም ለአስር ዓመታት ያስፈተናቸውን ሁሉንም ተማሪዎች ወደ ዩኒቨርሲቲ ያስገባ መሆኑም ተገልጿል፡፡\r\nበዚህ ትምህርት ቤት የተማሩ ተማሪዎቹም ከፍተኛ ውጤት በማምጣት ከ85 በመቶ በላይ የሚሆኑት በመረጡት ዘርፍ ትምህርታቸውን መከታተላቸውም ተገልጿል።\r\nትምህርት ቤቱ ላመጣው የላቀ ውጤት የመምህራን እና ተማሪዎች ለትምህርት የሰጡት ትኩረት ከፍተኛ በመሆኑ መሆኑንም ርዕሰ መምህሩ ተናግረዋል።\r\nለተማሪዎችም ሙሉ የትምህርት ቁሳቁስ፣ የማደሪያ፣ የምግብ ፣ የህክምና ወጪ በወላይታ ልማት ማህበር በመሟላቱ ምቹ የትምህርት ሁኔታ መፍጠር መቻሉም ተገልጿል።\r\nበመጨረሻም ትምህርት ቤቱ ባለበት የውጤታማነት ደረጃ እንዲቀጥል ልዩ ትኩረት ተሰጥቶት እየተሰራ እንደሚገኝ አቶ ማቱሳለህ ተናግረዋል፡፡', '2023-04-12', ''),
 (11, 'በ2014 ዓም. 12ኛ ክፍል የላቀ ዉጤት አምጥታችሁ የዉጪ ሀገር የትምህርት እድል/Scholarship / እድል የተሰጣችሁ 273 ተማሪዎች', 'በ2014 ዓም. 12ኛ ክፍል የላቀ ዉጤት አምጥታችሁ የዉጪ ሀገር የትምህርት እድል/Scholarship / እድል የተሰጣችሁ 273 ተማሪዎች የዉጪ ሀገር ትምህርቱ የሚጀመረዉ ከመስከረም/2016ዓም. ጀምሮ በመሆኑ ቀደም ሲል ወደተመደባችሁባቸዉ ዩኒቨርስቲዎች እንድትገቡ እናሳስባለን፡፡ ለዉጪ ሀገር ትምህርታችሁ የሚያግዝ የእንግሊዝኛ ቋንቋ ትምህርትና ሌሎች የቅድመ ዝግጅት ስራዎች ከተመደባችሁባቸዉ ዩኒቨርስቲዎች ጋር በመነጋገር የሚፈጸም ይሆናል፡፡ ማስታወሻ፤- በዚህ ጉዳይ በተናጠል ወደትምህርት ሚኒስቴር የሚመጣ ተማሪ የማናስተናግድ መሆኑን እንገልጻለን፡፡ የትምህርት ሚኒስቴር!', '2023-04-16', 'me');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `question`
+--
+
+CREATE TABLE `question` (
+  `Exam_id` varchar(10) NOT NULL,
+  `Question_id` int(11) NOT NULL,
+  `Question` varchar(200) NOT NULL,
+  `Choice_1` varchar(200) NOT NULL,
+  `Choice_2` varchar(200) NOT NULL,
+  `Choice_3` varchar(200) NOT NULL,
+  `Choice_4` varchar(200) NOT NULL,
+  `Answer` char(1) NOT NULL,
+  `Figure` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `question`
+--
+
+INSERT INTO `question` (`Exam_id`, `Question_id`, `Question`, `Choice_1`, `Choice_2`, `Choice_3`, `Choice_4`, `Answer`, `Figure`) VALUES
+('Math_N', 1, 'What is gcf of 24 and 16?', '6', '2', '8', '16', 'C', ''),
+('Math_N', 2, 'Which of the following is true?', 'Rectangle is square.			', 'Trapezium is a quadrilateral.', 'Rhombus has angle of 90 degrees.', 'None', 'B', ''),
+('Math_N', 3, 'Which one is perfect cube?	', '56', '8	', '64', 'B and C', 'D', ''),
+('Eng', 1, 'He is ........ now.', 'studying', 'studies', 'study', 'studied', 'A', ''),
+('Eng', 2, 'The man killed the dog. the passive form of this s...	', 'The man was killed by dog.	', 'The dog was killed by the man.	', 'The dog is killed by the man.	', 'The dog killed by the man.', 'B', ''),
+('Eng', 3, 'If I ...... you, I would tell you.	', 'am', 'were	', 'will	', 'was	', 'B', ''),
+('Eng', 4, 'The book is ........ the table.	', 'at	', 'in	', 'on	', 'after	', 'C', ''),
+('Eng', 5, '.......sun rises in ....... east.	', 'the.....a	', 'a.....an	', 'the.....an	', 'the ......the	', 'D', '');
 
 -- --------------------------------------------------------
 
@@ -86,6 +149,21 @@ INSERT INTO `res` (`Res_id`, `Title`, `File_path`, `Size`, `Typ`, `Admin_id`) VA
 (5, '111502-Article Text-308423-1-10-20150119 (3).pdf', 'resources/111502-Article Text-308423-1-10-20150119 (3).pdf', 1022625, 'exam', ''),
 (11, 'ale.docx', 'resources/ale.docx', 13142, 'reading', 'me');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `schedule`
+--
+
+CREATE TABLE `schedule` (
+  `Schedule_id` varchar(11) NOT NULL,
+  `Admin_id` varchar(10) NOT NULL,
+  `Exam_name` varchar(25) NOT NULL,
+  `Dat` varchar(50) NOT NULL,
+  `Start_time` time NOT NULL,
+  `End_time` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Indexes for dumped tables
 --
@@ -97,10 +175,22 @@ ALTER TABLE `news`
   ADD PRIMARY KEY (`News_id`);
 
 --
+-- Indexes for table `question`
+--
+ALTER TABLE `question`
+  ADD KEY `Question_id` (`Exam_id`,`Question_id`);
+
+--
 -- Indexes for table `res`
 --
 ALTER TABLE `res`
   ADD PRIMARY KEY (`Res_id`);
+
+--
+-- Indexes for table `schedule`
+--
+ALTER TABLE `schedule`
+  ADD PRIMARY KEY (`Schedule_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
