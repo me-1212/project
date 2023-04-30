@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2023 at 07:14 PM
+-- Generation Time: Apr 30, 2023 at 01:12 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -158,11 +158,51 @@ INSERT INTO `res` (`Res_id`, `Title`, `File_path`, `Size`, `Typ`, `Admin_id`) VA
 CREATE TABLE `schedule` (
   `Schedule_id` varchar(11) NOT NULL,
   `Admin_id` varchar(10) NOT NULL,
-  `Exam_name` varchar(25) NOT NULL,
-  `Dat` varchar(50) NOT NULL,
+  `Exam_name` varchar(50) NOT NULL,
+  `Dat` varchar(25) NOT NULL,
   `Start_time` time NOT NULL,
   `End_time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `schedule`
+--
+
+INSERT INTO `schedule` (`Schedule_id`, `Admin_id`, `Exam_name`, `Dat`, `Start_time`, `End_time`) VALUES
+('2023_Eng', 'me', 'English', 'Monday ', '09:00:00', '11:00:00'),
+('2023_Math_N', 'me', 'Mathematics for Natural Science', 'Monday ', '14:00:00', '17:00:00'),
+('2023_Math_S', 'me', 'Mathematics for Social Science', 'Monday ', '14:00:00', '17:00:00'),
+('2023_Sat', 'me', 'Scholastic Aptitude Test', 'Tuesday', '09:00:00', '11:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student`
+--
+
+CREATE TABLE `student` (
+  `Name` varchar(50) NOT NULL,
+  `Registration_number` int(15) NOT NULL,
+  `Username` varchar(25) NOT NULL,
+  `Pass` int(11) NOT NULL,
+  `Stream` varchar(15) NOT NULL,
+  `School_code` int(11) NOT NULL,
+  `Region` int(11) NOT NULL,
+  `Woreda` int(11) NOT NULL,
+  `Photo` text NOT NULL,
+  `Gender` char(1) NOT NULL,
+  `Is_blind` varchar(3) NOT NULL,
+  `Zone` int(11) NOT NULL,
+  `City` int(11) NOT NULL,
+  `Subject` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `student`
+--
+
+INSERT INTO `student` (`Name`, `Registration_number`, `Username`, `Pass`, `Stream`, `School_code`, `Region`, `Woreda`, `Photo`, `Gender`, `Is_blind`, `Zone`, `City`, `Subject`) VALUES
+('Abebe Tamrat Bihon', 10101050, 'NS_ATB_15', 123, 'Natural', 11, 5, 6, '\"photo\\abebe.jpg\"', 'M', 'No', 1, 34, 'English\r\nMathematics for natural science\r\nSAT\r\nBiology\r\nChemistry\r\nPhysics\r\nCivics and ethical education');
 
 --
 -- Indexes for dumped tables
@@ -191,6 +231,14 @@ ALTER TABLE `res`
 --
 ALTER TABLE `schedule`
   ADD PRIMARY KEY (`Schedule_id`);
+
+--
+-- Indexes for table `student`
+--
+ALTER TABLE `student`
+  ADD PRIMARY KEY (`Registration_number`),
+  ADD UNIQUE KEY `Username` (`Username`),
+  ADD UNIQUE KEY `Pass` (`Pass`);
 
 --
 -- AUTO_INCREMENT for dumped tables
