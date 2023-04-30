@@ -10,6 +10,14 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+         table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding:5px;
+            margin:5px;
+         }
+      </style>
     </head>
     <body>
         <!-- Header part -->
@@ -21,7 +29,7 @@
             </svg>
         </i>
         <h3 class="topic" >View Schedule</h3>
-        <a href="admin_home.html" class="btn">Back</a>
+        <a href="student_home.php" class="btn">Back</a>
         </div>
         </header>
 
@@ -29,9 +37,8 @@
             <div class="container">
                 <div class="row">
                 <legend><h3>Schedule</h3></legend>
-                <table style = "border: 1px solid black; border-collapse: collapse;">
+                <table>
                     <tr>
-                    <th>Schedule Id</th>
                     <th>Exam Name</th>
                     <th>Date</th>
                     <th>Start Time</th>
@@ -39,12 +46,12 @@
                     </tr>
 
                     <?php
-                        $query = "SELECT * FROM schedule";
+                        $year = date("Y");
+                        $query = "SELECT * FROM schedule WHERE Schedule_id LIKE CONCAT($year, '%')";
                         $result = mysqli_query($conn, $query);
                         while($row = mysqli_fetch_assoc($result)){
                     ?>
                     <tr>
-                        <td> <?php echo $row["Schedule_id"];?> </td>
                         <td> <?php echo $row["Exam_name"];?> </td>
                         <td> <?php echo $row["Dat"];?> </td>
                         <td> <?php echo $row["Start_time"];?> </td>

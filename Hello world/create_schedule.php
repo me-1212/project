@@ -81,8 +81,8 @@
         </div>
         <div class="form-row d-grid gap-2 d-md-flex justify-content-md-end col-lg-3" style = "margin-top:-20px;">
             <input  type="submit" value="Create" name="save" class="btn1" style= "display:inline;">
-            <input  type="reset" value="Reset" class="btn1" style= "display:inline;">
-        </div></fieldset>
+            <input  type="submit" value="Display" name="display" class="btn1" style= "display:inline;">
+        </div></fieldset> 
       </form>
     </div>
   </div>

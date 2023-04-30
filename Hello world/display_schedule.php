@@ -10,6 +10,14 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+         table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding:5px;
+            margin:5px;
+         }
+      </style>
     </head>
     <body>
         <!-- Header part -->
@@ -38,7 +46,7 @@
             <div class="container">
                 <div class="row">
                 <legend><h3>Schedule</h3></legend>
-                <table style = "border: 1px solid black; border-collapse: collapse;">
+                <table>
                     <tr>
                     <th>Schedule Id</th>
                     <th>Exam Name</th>
@@ -64,7 +72,7 @@
                     ?>
                 </table>
                     <div class="row col-lg-1">
-                        <a href="" class="btn-update" data-bs-toggle="modal" data-bs-target="#Update"> Update </a>
+                        <a href="" class="btn-update" data-bs-toggle="modal" data-bs-target="#Update" style="margin-top:20px;"> Update </a>
                     </div>
                 </div>
             </div>
@@ -81,18 +89,18 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="margin-left:430px;"></button>
         <br>
         <br> 
-        <form action="schedule.php" method="post" enctype="multipart/form-data">
-        <div class="form-row col-lg-3">
+        <form action="schedule.php" method="post" enctype="multipart/form-data" style="margin-left:65px;">
+        <div class="form-row col-lg-8">
             <label for="input" class="form-label" style="font-weight:bold;">Schedule Id</label>
             <input class="form-control" type="text" name = "schedule_id" placeholder="Enter schedule id">
         </div>
-        <div class="form-row col-lg-3">
+        <div class="form-row col-lg-8">
           <div class="mb-3">
             <label for="input" class="form-label" style="font-weight:bold;">Admin Id</label>
             <input class="form-control" type="text" name = "admin_id" placeholder="Enter admin id">
           </div>
         </div>
-        <div class="form-row col-lg-3">
+        <div class="form-row col-lg-8">
           <label for="type" class="form-label" style="font-weight:bold;">Exam Name</label>
           <select class="form-select" aria-label="Default select example" name ="exam_name">
                 <?php
@@ -106,25 +114,25 @@
                 ?>
           </select>
         </div>
-        <div class="form-row col-lg-3">
+        <div class="form-row col-lg-8">
           <div class="mb-3">
             <label for="formFile" class="form-label" style="font-weight:bold;">Date</label>
             <input class="form-control" type="text" name = "day">
           </div>
         </div>
-        <div class="form-row col-lg-3">
+        <div class="form-row col-lg-8">
           <div class="mb-3">
             <label for="formFile" class="form-label" style="font-weight:bold;">Start Time</label>
             <input class="form-control" type="time" name = "start_time">
           </div>
         </div>
-        <div class="form-row col-lg-3">
+        <div class="form-row col-lg-8">
           <div class="mb-3">
             <label for="formFile" class="form-label" style="font-weight:bold;">End Time</label>
             <input class="form-control" type="time" name = "end_time">
           </div>
         </div>
-        <div class="form-row">
+        <div class="form-row col-lg-8">
             <input  type="submit" value="Save changes" name="update" class="btn1" style= "display:inline;">
         </div>
         </form>
