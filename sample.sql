@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2023 at 01:12 PM
+-- Generation Time: May 14, 2023 at 03:56 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -50,25 +50,26 @@ CREATE TABLE `exam` (
   `Exam_name` varchar(35) NOT NULL,
   `No_of_ques` int(11) NOT NULL,
   `Stream` varchar(11) NOT NULL,
-  `Time` int(11) NOT NULL
+  `Time` int(11) NOT NULL,
+  `Status` tinyint(4) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `exam`
 --
 
-INSERT INTO `exam` (`Exam_id`, `Exam_name`, `No_of_ques`, `Stream`, `Time`) VALUES
-('Eng', 'English', 5, 'Both', 120),
-('Sat', 'Scholastic Aptitude Test', 5, 'Both', 120),
-('Math_N', 'Mathematics for Natural Science', 3, 'Natural', 180),
-('Math_S', 'Mathematics for Social Science', 3, 'Social', 180),
-('Bio', 'Biology', 5, 'Natural', 120),
-('Chm', 'Chemistry', 5, 'Natural', 120),
-('Phy', 'Physics', 3, 'Natural', 120),
-('Civ', 'Civics and Ethical Education', 5, 'Both', 120),
-('His', 'History', 5, 'Social', 120),
-('Geo', 'Geography', 5, 'Social', 120),
-('Bus', 'Business', 5, 'Social', 120);
+INSERT INTO `exam` (`Exam_id`, `Exam_name`, `No_of_ques`, `Stream`, `Time`, `Status`) VALUES
+('Eng', 'English', 5, 'Both', 1, 1),
+('Sat', 'Scholastic Aptitude Test', 5, 'Both', 120, 0),
+('Math_N', 'Mathematics for Natural Science', 3, 'Natural', 180, 0),
+('Math_S', 'Mathematics for Social Science', 3, 'Social', 180, 0),
+('Bio', 'Biology', 5, 'Natural', 120, 0),
+('Chm', 'Chemistry', 5, 'Natural', 120, 0),
+('Phy', 'Physics', 3, 'Natural', 120, 0),
+('Civ', 'Civics and Ethical Education', 5, 'Both', 120, 0),
+('His', 'History', 5, 'Social', 120, 0),
+('Geo', 'Geography', 5, 'Social', 120, 0),
+('Bus', 'Business', 5, 'Social', 120, 0);
 
 -- --------------------------------------------------------
 
@@ -152,6 +153,18 @@ INSERT INTO `res` (`Res_id`, `Title`, `File_path`, `Size`, `Typ`, `Admin_id`) VA
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `result`
+--
+
+CREATE TABLE `result` (
+  `Registration_no` varchar(15) NOT NULL,
+  `Exam_id` varchar(15) NOT NULL,
+  `Score` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `schedule`
 --
 
@@ -159,6 +172,7 @@ CREATE TABLE `schedule` (
   `Schedule_id` varchar(11) NOT NULL,
   `Admin_id` varchar(10) NOT NULL,
   `Exam_name` varchar(50) NOT NULL,
+  `Stream` varchar(10) NOT NULL,
   `Dat` varchar(25) NOT NULL,
   `Start_time` time NOT NULL,
   `End_time` time NOT NULL
@@ -168,11 +182,11 @@ CREATE TABLE `schedule` (
 -- Dumping data for table `schedule`
 --
 
-INSERT INTO `schedule` (`Schedule_id`, `Admin_id`, `Exam_name`, `Dat`, `Start_time`, `End_time`) VALUES
-('2023_Eng', 'me', 'English', 'Monday ', '09:00:00', '11:00:00'),
-('2023_Math_N', 'me', 'Mathematics for Natural Science', 'Monday ', '14:00:00', '17:00:00'),
-('2023_Math_S', 'me', 'Mathematics for Social Science', 'Monday ', '14:00:00', '17:00:00'),
-('2023_Sat', 'me', 'Scholastic Aptitude Test', 'Tuesday', '09:00:00', '11:00:00');
+INSERT INTO `schedule` (`Schedule_id`, `Admin_id`, `Exam_name`, `Stream`, `Dat`, `Start_time`, `End_time`) VALUES
+('2023_Eng', 'me', 'English', 'Both', 'Monday ', '09:00:00', '11:00:00'),
+('2023_Math_N', 'me', 'Mathematics for Natural Science', 'Natural', 'Monday ', '14:00:00', '17:00:00'),
+('2023_Math_S', 'me', 'Mathematics for Social Science', 'Social', 'Monday ', '14:00:00', '17:00:00'),
+('2023_Sat', 'me', 'Scholastic Aptitude Test', 'Both', 'Tuesday', '09:00:00', '11:00:00');
 
 -- --------------------------------------------------------
 
@@ -225,6 +239,12 @@ ALTER TABLE `question`
 --
 ALTER TABLE `res`
   ADD PRIMARY KEY (`Res_id`);
+
+--
+-- Indexes for table `result`
+--
+ALTER TABLE `result`
+  ADD UNIQUE KEY `Registration_no` (`Registration_no`,`Exam_id`);
 
 --
 -- Indexes for table `schedule`
