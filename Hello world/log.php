@@ -6,20 +6,26 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-    if(empty($username))
-        header("Location:login.php?error=Username is required");
-    else if(empty($password)) 
-        header("Location:login.php?error=Password is requied");
-    else{
-        $query = "SELECT * FROM student";
-        $result = mysqli_query($conn, $query);
-        $row = mysqli_fetch_assoc($result);
-        if($row["Username"]== $username && $row["Pass"] == $password){
-            header("Location:student_home.php?username=$username");
-        }
+        if(empty($username))
+            header("Location:login.php?error=Username is required");
+        else if(empty($password)) 
+            header("Location:login.php?error=Password is requied");
         else{
-            header("Location:login.php?error=Incorrect username or password please try again");
+            $query = "SELECT * FROM student";
+            $result = mysqli_query($conn, $query);
+            $row = mysqli_fetch_assoc($result);
+            if($row["Username"]== $username && $row["Pass"] == $password){
+                header("Location:student_home.php?username=$username");
+                // $command = escapeshellcmd("python face_recog.py");
+                // $output = shell_exec($command);
+                // if ($output == "Access granted") {
+                //     header("Location:student_home.php");
+                //     exit();
+            }
+                else{
+                    header("Location:login.php?error=Incorrect username or password please try again");
+                }
+            }
         }
-    }
-    }
+    // }
 ?>

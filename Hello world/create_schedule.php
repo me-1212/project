@@ -20,7 +20,7 @@
             </svg>
         </i>
             <h3 class="topic" style="margin-top:-182px;">Create Schedule</h3>
-            <a href="admin_home.html" class="btn col-lg-1" style="margin-top:-330px;">Back</a>
+            <a href="admin_home.php" class="btn col-lg-1" style="margin-top:-330px;">Back</a>
       </div>
     </header>
 
@@ -59,6 +59,14 @@
                 <?php
                     }
                 ?>
+          </select>
+        </div>
+        <div class="form-row col-lg-3">
+          <label for="type" class="form-label" style="font-weight:bold;">Stream</label>
+          <select class="form-select" aria-label="Default select example" name ="stream">
+              <option value="natural">Natural</option>
+              <option value="social">Social</option>
+              <option value="both">Both</option>
           </select>
         </div>
         <div class="form-row col-lg-3">

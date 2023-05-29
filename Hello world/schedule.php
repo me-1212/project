@@ -17,6 +17,8 @@
 
         $end_time = $_POST['end_time'];
 
+        $stream = $_POST['stream'];
+
 
         //check whether the fields are empty or not
         if(empty($schedule_id)){
@@ -31,10 +33,12 @@
             header("Location:create_schedule.php?msg=Start time is required");
         }else if(empty($end_time)){
             header("Location:create_schedule.php?msg=End time is required");
+        }else if(empty($stream)){
+                header("Location:create_schedule.php?msg=Stream is required");
         }else{
             //if not empty, insert the value to database
-            $query = "INSERT INTO schedule (Schedule_id, Admin_id, Exam_name, Dat, Start_time, End_time) 
-                        VALUES ('$schedule_id', '$admin_id', '$exam_name', '$day','$start_time', '$end_time')";
+            $query = "INSERT INTO schedule (Schedule_id, Admin_id, Exam_name, Stream, Dat, Start_time, End_time) 
+                        VALUES ('$schedule_id', '$admin_id', '$exam_name', '$stream', '$day','$start_time', '$end_time')";
             
             if (mysqli_query($conn, $query)) {
 

@@ -28,10 +28,44 @@ $score = $_SESSION['score'];
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/exam_style.css">
 </head>
 <body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <h1 class="navbar-brand" href="#">
+                <?php 
+                    switch($exam_id){
+                        case 'Eng':
+                            echo 'English Exam';    break;
+                        case 'Sat':
+                            echo 'Scholastic Aptitude Test Exam';   break;  
+                        case 'Math_N':
+                            echo  'Mathematics For Natural Science Exam';   break;
+                        case 'Math_S':
+                            echo 'Mathematics For Social Science Exam';  break;
+                        case 'Bio':
+                            echo 'Biology Exam';     break;
+                        case 'Chm':
+                            echo 'Chemistry Exam';   break;
+                        case 'Phy':
+                            echo 'Physics Exam';     break;
+                        case 'Civ':
+                            echo 'Civics and Ethical Education Exam';    break;
+                        case 'Geo':
+                            echo 'Geography Exam';   break;
+                        case 'His':
+                            echo 'History Exam';     break;
+                        case 'Bus':
+                            echo 'Business Exam';    break;
+                    }
+                ?>
+            </h1>
+        </div>
+    </nav>
+
     <div class="container">
-        <h1>Time is up!!!! You have to submit the answers you have done. Please click finish button!!</h1>
+        <h3 id = "time-up">Time is up! You have to submit the answers you have done. Please click finish button!</h3>
         <?php for ($i = 0; $i < $num_questions; $i++): ?>
             <div class="card mb-3">
                 <div class="card-header">Question <?php echo ($i + 1); ?></div>
@@ -52,7 +86,7 @@ $score = $_SESSION['score'];
         <?php endfor; ?>
         <h2>Final score: <?php echo $score; ?></h2>
         <form method="post" action="finish_exam.php?id=<?php echo $exam_id?>">
-            <button type="submit" class="btn btn-primary">Finish</button>
+            <button type="submit" class="btn2 btn-primary">Finish</button>
         </form>
     </div>
 </body>

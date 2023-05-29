@@ -22,7 +22,7 @@ include 'post_news.php';
             </svg>
             </i>
             <h3 class="topic" style="margin-top:-182px;">Post news</h3>
-            <a href="admin_home.html" class="btn col-lg-1" style="margin-top:-330px;">Back</a>
+            <a href="admin_home.php" class="btn col-lg-1" style="margin-top:-330px;">Back</a>
       </div>
     </header>
 

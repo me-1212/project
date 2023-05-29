@@ -20,7 +20,7 @@
             </svg>
            </i>
         <h3 class="topic" >Upload QAs</h3>
-        <a href="admin_home.html" class="btn">Back</a>
+        <a href="admin_home.php" class="btn">Back</a>
         </div>
         </header>
 

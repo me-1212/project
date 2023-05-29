@@ -29,7 +29,7 @@
             </svg>
         </i>
         <h3 class="topic" >View Schedule</h3>
-        <a href="student_home.php" class="btn">Back</a>
+        <a href="student_home.php?username=<?php echo $_GET['username'];?>" class="btn">Back</a>
         </div>
         </header>
 

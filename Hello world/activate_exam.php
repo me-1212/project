@@ -117,7 +117,7 @@
               </svg>
             </i>
         <h3 class="topic" >Activate exam</h3>
-        <a href="admin_home.html" class="btn col-lg-1">Back</a>
+        <a href="admin_home.php" class="btn col-lg-1">Back</a>
       </div>
     </header>
 	<table>

@@ -18,7 +18,7 @@
               </svg>
             </i>
             <h3 class="topic" style="margin-top:-182px;">Upload Resource</h3>
-            <a href="admin_home.html" class="btn col-lg-1" style="margin-top:-330px;">Back</a>
+            <a href="admin_home.php" class="btn col-lg-1" style="margin-top:-330px;">Back</a>
       </div>
     </header>
 

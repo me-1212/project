@@ -17,7 +17,7 @@
             $result = mysqli_query($conn, $query);
             $row = mysqli_fetch_assoc($result);
             if($row["username"]== $username && $row["pass"] == $password){
-                header("Location:admin_home.html");
+                header("Location:admin_home.php");
             }
             else{
                 header("Location:login_ad.php?error=Incorrect username or password please try again");
