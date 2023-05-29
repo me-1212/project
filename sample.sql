@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2023 at 03:56 PM
+-- Generation Time: May 29, 2023 at 05:17 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -159,8 +159,16 @@ INSERT INTO `res` (`Res_id`, `Title`, `File_path`, `Size`, `Typ`, `Admin_id`) VA
 CREATE TABLE `result` (
   `Registration_no` varchar(15) NOT NULL,
   `Exam_id` varchar(15) NOT NULL,
-  `Score` int(11) NOT NULL
+  `Score` int(11) NOT NULL,
+  `Status` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `result`
+--
+
+INSERT INTO `result` (`Registration_no`, `Exam_id`, `Score`, `Status`) VALUES
+('10101050', 'Eng', 3, 0);
 
 -- --------------------------------------------------------
 
