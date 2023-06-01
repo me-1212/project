@@ -1,24 +1,34 @@
 import cv2
 import os
-from flask import Flask, redirect
+import numpy as np
+from flask import Flask
+from cv2 import VideoCapture
+from flask import redirect
+from cv2 import VideoCapture, cvtColor, COLOR_BGR2GRAY
+# import face_recognition
+
 
 app = Flask(__name__)
 
-# Load the saved images from the photos folder
-photos_folder = 'photos'
+photos_folder = r'C:\xampp1\htdocs\Hello world\photo'
+
+# Load the images and convert them to grayscale
 images = []
+labels = []
 for file_name in os.listdir(photos_folder):
-    image = cv2.imread(os.path.join(photos_folder, file_name))
-    images.append(image)
+    image_path = os.path.join(photos_folder, file_name)
+    image = cv2.imread(image_path)
+    if image is not None:
+        gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY) # convert to grayscale
+        images.append(gray_image)
+        labels.append(int(file_name.split('.')[0]))
 
-# Initialize the face recognizer
+# Train the face recognizer
 face_recognizer = cv2.face.LBPHFaceRecognizer_create()
+face_recognizer.train(images, np.array(labels))
 
-# Train the face recognizer with the loaded images
-face_recognizer.train(images, np.array([1, 2, 3])) # replace [1, 2, 3] with the corresponding labels for each image
+# Rest of the code
 
-# Initialize the camera
-camera = cv2.VideoCapture(0)
 
 @app.route('/')
 def home():
@@ -26,8 +36,21 @@ def home():
 
 @app.route('/login')
 def login():
+    
+    # Initialize the camera
+    camera = cv2.VideoCapture(0)
     # Capture a new image from the camera
-    ret, image = camera.read()
+    
+    while True:
+        ret, image = camera.read()
+        cv2.imshow('frame', image)
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            cv2.destroyAllWindows()
+            break
+
+    camera.release()
+    
+    
 
     # Convert the captured image to grayscale
     gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -35,7 +58,7 @@ def login():
     # Recognize the face in the captured image
     label, confidence = face_recognizer.predict(gray_image)
 
-    # Check if the recognizedface matches with any of the saved images
+    # Check if the recognized face matches with any of the saved images
     if label == 1: # replace 1 with the label of the correct face
         return redirect('http://localhost/student_home.php')
     else:
