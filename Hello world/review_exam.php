@@ -31,9 +31,9 @@ if(isset($_POST['update'])){
         $_SESSION['questions'][$qno]['selected_answer'] = $updated_answer;
 
         // Recalculate the score
-        if($_SESSION['questions'][$qno]['selected_answer'] == $_SESSION['questions'][$qno]['Answer']){
+        if(strcmp(trim(strtolower($_SESSION['questions'][$qno]['selected_answer'])), trim(strtolower($_SESSION['questions'][$qno]['Answer']))) == 0){
             $_SESSION['score'] ++;
-        }else if($previous_answer != $_SESSION['questions'][$qno]['Answer']){
+        }else if(strcmp(trim(strtolower($previous_answer)), trim(strtolower($_SESSION['questions'][$qno]['Answer']))) != 0){
             // Do nothing
         }else{
             $_SESSION['score'] --;

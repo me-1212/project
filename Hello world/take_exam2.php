@@ -3,6 +3,16 @@
 // Start the session
 session_start();
 
+function has_duplicate($arr) {
+    $arr_count = array_count_values($arr);
+    foreach ($arr_count as $count) {
+        if ($count > 1) {
+            return true;
+        }
+    }
+    return false;
+}
+
 // Include the database connection file
 include 'connection.php';
 
@@ -23,18 +33,44 @@ if (!isset($_SESSION['started'])) {
     $_SESSION['student_id'] = $row['Registration_number'];
 
     // Get the questions for the exam
-    $query = "SELECT * FROM question WHERE Exam_id = '$exam_id'";
+    $query = "SELECT DISTINCT * FROM question WHERE Exam_id = '$exam_id'";
     $result = mysqli_query($conn, $query);
 
     // Save the questions in the session
-    $_SESSION['questions'] = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    $questions = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+// Shuffle the choices for each question
+foreach ($questions as &$question) {
+    $choices = array($question['Choice_1'], $question['Choice_2'], $question['Choice_3'], $question['Choice_4']);
+    shuffle($choices);
+    $question['Choice_1'] = $choices[0];
+    $question['Choice_2'] = $choices[1];
+    $question['Choice_3'] = $choices[2];
+    $question['Choice_4'] = $choices[3];
+}
+
+// Save the shuffled questions in the session
+$_SESSION['questions'] = $questions;
+
+    // // Save the questions in the session
+    // $_SESSION['questions'] = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     // Get total number of questions
     $_SESSION['num_questions'] = count($_SESSION['questions']);
 
+    // // Generate a random permutation of the question indices
+    // $_SESSION['question_permutation'] = range(0, $_SESSION['num_questions'] - 1);
+    // shuffle($_SESSION['question_permutation']);
+
     // Generate a random permutation of the question indices
-    $_SESSION['question_permutation'] = range(0, $_SESSION['num_questions'] - 1);
-    shuffle($_SESSION['question_permutation']);
+    $question_indices = range(0, $_SESSION['num_questions'] - 1);
+
+    do {
+        shuffle($question_indices);
+    } while (has_duplicate($question_indices));
+
+    $_SESSION['question_permutation'] = $question_indices;
+
 
     // Initialize the current question index to 0
     $_SESSION['current_question'] = 0;
@@ -80,7 +116,7 @@ if (isset($_POST['submit'])) {
         $_SESSION['questions'][$permuted_index]['selected_answer'] = $selected_answer;
 
         // Check if the selected answer is correct
-        if ($selected_answer == $_SESSION['questions'][$permuted_index]['Answer']) {
+        if (strcmp(trim(strtolower($selected_answer)), trim(strtolower($_SESSION['questions'][$permuted_index]['Answer'])))== 0) {
             // Increment the score
             $_SESSION['score']++;
         }
@@ -178,19 +214,19 @@ $question = $_SESSION['questions'][$permuted_index];
         <p class="lead"><?php echo $question['Question']; ?></p>
         <form method="post">
             <div class="form-check mb-3">
-                <input class="form-check-input" type="radio" name="answer" id="choice1" value="A" <?php if ($question['Choice_1'] == $question['Answer']) echo'checked'; ?>>
+                <input class="form-check-input" type="radio" name="answer" id="choice1" value="<?php echo $question['Choice_1']; ?>" >
                 <label class="form-check-label" for="choice1"><?php echo $question['Choice_1']; ?></label>
             </div>
             <div class="form-check mb-3">
-                <input class="form-check-input" type="radio" name="answer" id="choice2" value="B" <?php if ($question['Choice_2'] == $question['Answer']) echo 'checked'; ?>>
+                <input class="form-check-input" type="radio" name="answer" id="choice2" value="<?php echo $question['Choice_2']; ?>" >
                 <label class="form-check-label" for="choice2"><?php echo $question['Choice_2']; ?></label>
             </div>
             <div class="form-check mb-3">
-                <input class="form-check-input" type="radio" name="answer" id="choice3" value="C" <?php if ($question['Choice_3'] == $question['Answer']) echo 'checked'; ?>>
+                <input class="form-check-input" type="radio" name="answer" id="choice3" value="<?php echo $question['Choice_3']; ?>" >
                 <label class="form-check-label" for="choice3"><?php echo $question['Choice_3']; ?></label>
             </div>
             <div class="form-check mb-3">
-                <input class="form-check-input" type="radio" name="answer" id="choice4" value="D" <?php if ($question['Choice_4'] == $question['Answer']) echo 'checked'; ?>>
+                <input class="form-check-input" type="radio" name="answer" id="choice4" value="<?php echo $question['Choice_4']; ?>" >
                 <label class="form-check-label" for="choice4"><?php echo $question['Choice_4']; ?></label>
             </div>
             <input type="hidden" name="end_time" value="<?php echo $end_time; ?>">
@@ -211,6 +247,19 @@ $question = $_SESSION['questions'][$permuted_index];
         // Set the end time of the exam
         var endTime = <?php echo $end_time; ?> * 1000;
 
+        // Set the time at which 50% of the total time has been used
+        var halfTime = endTime - duration/2 * 1000;
+
+        // Set the time at which 5 minutes are left
+        var fiveMinutesLeft = endTime - (5 * 60 * 1000);
+
+        // Initialize a boolean variable to keep track of whether the alert has already been displayed
+        var alertDisplayed = false;
+
+        // Initialize a boolean variable to keep track of whether the alert for five minute has already been displayed
+        var alertFiveDisplayed = false;
+
+
         // Update the timer every second
         var timerId = setInterval(function() {
             // Get the current time
@@ -225,6 +274,18 @@ $question = $_SESSION['questions'][$permuted_index];
 
             // Update the timer element with the time remaining
             timerElement.innerHTML = minutes + "m " + seconds + "s ";
+
+            // Check if 50% of the time has been used and the alert has not been displayed yet
+            if (currentTime >= halfTime && !alertDisplayed) {
+                alert("You have used 50% of the time for the exam.");
+                alertDisplayed = true; // set the flag to true to indicate that the alert has been displayed
+            }
+
+            // Check if 50% of the time has been used and the alert has not been displayed yet
+            if (currentTime >= fiveMinutesLeft && !alertFiveDisplayed) {
+                alert("You have left with only five minutes try to finalize your exam.");
+                alertFiveDisplayed = true; // set the flag to true to indicate that the alert has been displayed
+            }
 
             // Stop the timer when time is up
             if (timeRemaining < 0) {

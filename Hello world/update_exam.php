@@ -69,19 +69,19 @@ $question = $_SESSION['questions'][$qindex];
         <p class = "lead"><?php echo $question['Question']; ?></p>
         <form method="post" action="review_exam.php?id=<?php echo $exam_id; ?>&end_time=<?php echo $end_time;?>">
             <div class="form-check mb-3">
-                    <input class="form-check-input" type="radio" name="answer" value="A" <?php if ($question['Choice_1'] == $question['Answer']) echo 'checked'; ?>>
+                    <input class="form-check-input" type="radio" name="answer" value="<?php echo $question['Choice_1']; ?>" >
                     <label class="form-check-label"><?php echo $question['Choice_1']; ?></label>
                 </div>
                 <div class="form-check mb-3">
-                    <input class="form-check-input" type="radio" name="answer" value="B" <?php if ($question['Choice_2'] == $question['Answer']) echo 'checked'; ?>>
+                    <input class="form-check-input" type="radio" name="answer" value="<?php echo $question['Choice_2']; ?>" >
                     <label class="form-check-label"><?php echo $question['Choice_2']; ?></label>
                 </div>
                 <div class="form-check mb-3">
-                    <input class="form-check-input" type="radio" name="answer" value="C" <?php if ($question['Choice_3'] == $question['Answer']) echo 'checked'; ?>>
+                    <input class="form-check-input" type="radio" name="answer" value="<?php echo $question['Choice_3']; ?>" >
                     <label class="form-check-label"><?php echo $question['Choice_3']; ?></label>
                 </div>
                 <div class="form-check mb-3">
-                    <input class="form-check-input" type="radio" name="answer" value="D" <?php if ($question['Choice_4'] == $question['Answer']) echo 'checked'; ?>>
+                    <input class="form-check-input" type="radio" name="answer" value="<?php echo $question['Choice_4']; ?>" >
                     <label class="form-check-label"><?php echo $question['Choice_4']; ?></label>
                 </div>
             <input type="hidden" name="qnum" value="<?php echo $qindex; ?>">
