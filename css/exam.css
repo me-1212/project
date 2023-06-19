@@ -1,0 +1,119 @@
+#view {
+    overflow-x: hidden;
+}
+
+#view h3 {
+    font-size: 38px;
+    text-align: center;
+    color: red;
+    margin-top: 200px;
+}
+
+#view h4 {
+    font-size: 28px;
+    text-align: center;
+    margin-top: -150px;
+}
+
+#view a {
+    text-decoration: none;
+    border: none;
+    outline: none;
+    height: 40px;
+    background-color: #454868;
+    color: white;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 700px;
+    text-align: center;
+    font-size: 25px;
+}
+
+#view a:hover {
+    background: white;
+    border: 1px solid;
+    color: black
+}
+
+#view .row{
+    background: white;
+    border-radius: 0px;
+    box-shadow: none;
+}
+
+.row {
+    background: white;
+    border-radius: 30px;
+    box-shadow: 12px 12px 22px black;
+}
+
+.container {
+    width: 850px;
+    height: 900px;
+    margin-top: 20px;
+}
+
+.rule {
+    padding: 9px;
+    margin: 5px;
+}
+
+.rule h4 {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+    line-height: 40px;
+}
+
+.rule h5 {
+    margin-top: 35px;
+    margin-left: 500px;
+    font-weight: bold;
+    line-height: 40px;
+}
+
+.rule h6 {
+    margin-top: 35px;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 35px;
+    line-height: 40px;
+}
+
+.rule p {
+    margin-top: 10px;
+    margin-left: 25px;
+    margin-right: 25px;
+    text-align: justify;
+    font-size: 20px;
+    line-height: 40px;
+}
+
+.rule span {
+    font-weight: bolder;
+}
+
+.rule a {
+    text-decoration: none;
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 130px;
+    background-color: #454868;
+    color: white;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 280px;
+    text-align: center;
+    font-size: 25px;
+    padding: 7px;
+    margin-bottom: 25px;
+}
+
+.rule a:hover {
+    background: white;
+    border: 1px solid;
+    color: black
+}

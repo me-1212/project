@@ -1,0 +1,132 @@
+body{
+  overflow-x: hidden;
+}
+
+#header {
+  background: #0A2558;
+  transition: all 0.5s;
+  z-index: 997;
+  padding: 20px 0;
+  height: 100px;
+}
+
+#header .row {
+  margin: 8px;
+}
+
+#header .row h3 {
+  font-weight: bold;
+  font-size: 24px;
+  color: white;
+  margin-left: 35px;
+  margin-top: -25px;
+}
+
+#header .row .btn {
+  text-decoration: none;
+  border: none;
+  outline: none;
+  height: 40px;
+  width: 80px;
+  background-color: white;
+  color: black;
+  border-radius: 4px;
+  font-weight: bold;
+  margin-left: 1200px;
+  margin-top: -30px;
+}
+
+#header .row .btn:hover {
+  background: white;
+  border: 1px solid;
+  color: #96bbff
+}
+
+form {
+  margin: 3px auto;
+  padding: 30px;
+}
+
+input {
+  width: 100%;
+  border: 1px solid #f1e1e1;
+  display: block;
+  padding: 5px 10px;
+}
+
+button {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.row-con {
+  border-radius: 30px;
+  width: 1100px;
+  height: 500px;
+}
+
+.form-row {
+  margin-left: 370px;
+}
+
+.btn1 {
+  border: none;
+  outline: none;
+  height: 40px;
+  width: 100%;
+  background-color: #454868;
+  color: white;
+  border-radius: 4px;
+  font-weight: bold;
+  margin-top: 25px;
+  margin-left: 25px;
+}
+
+.btn1:hover {
+  background: white;
+  border: 1px solid;
+  color: black
+}
+
+.message {
+  background: #F2DEDE;
+  color: #A94442;
+  padding: 10px;
+  width: 51%;
+  border-radius: 5px;
+  margin: 20px 0px auto;
+}
+
+#btn-msg{
+  float:right;
+  background-color: #ccc;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0.5px 10px;
+  cursor: pointer;
+  color: red;
+}
+
+.messages {
+  background: #a0e999;
+  color: rgb(8, 122, 8);
+  padding: 10px;
+  width: 51%;
+  border-radius: 5px;
+  margin: 20px 0px auto;
+}
+
+#btn-msgs{
+  float:right;
+  background-color: #ccc;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0.5px 10px;
+  cursor: pointer;
+  color: rgb(8, 122, 8);
+}
+
