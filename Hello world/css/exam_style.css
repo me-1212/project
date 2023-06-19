@@ -6,23 +6,23 @@ body {
     font-size: 60px;
     font-weight: bold;
     text-align: right;
-    margin-top: 70px;
+    margin-top: 20px;
 }
 
-.container-fluid{
-    background-color: #2e2e2e;
-    height: 70px;
+.container-fluid {
+    background-color: #0A2558;
+    height: 80px;
+    margin-top: -15px;
 }
 
-.container-fluid h1{
+.container-fluid h1 {
     font-size: 40px;
     color: white;
-    margin-left: 20px;
-    margin-top: 5px;
+    padding: 7px
 }
 
-.question-container{
-    background-color: #555;
+.question-container {
+    background-color: #0A2558;
     color: #fff;
     border-radius: 10px;
     padding: 20px;
@@ -30,10 +30,10 @@ body {
     margin-left: 100px;
     height: fit-content;
     margin-bottom: 10px;
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
-#error{
+#error {
     background: #F2DEDE;
     color: #A94442;
     padding: 10px;
@@ -43,7 +43,7 @@ body {
     font-weight: normal;
 }
 
-.question-container h1{
+.question-container h1 {
     font-size: 30px;
     text-align: left;
     margin-top: 5px;
@@ -51,7 +51,7 @@ body {
     margin-left: 30px;
 }
 
-.question-container p{
+.question-container p {
     font-size: 30px;
     margin-top: 5px;
     font-weight: bold;
@@ -59,76 +59,76 @@ body {
     padding: 3px;
 }
 
-.question-container label{
+.question-container label {
     font-size: 30px;
     font-weight: bold;
     margin-left: 20px;
     padding: 3px;
 }
 
-.question-container input{
+.question-container input {
     margin-left: 60px;
     width: 35px;
     height: 35px;
     padding: 3px;
 }
 
-.btn{
+.btn {
     border: none;
     outline: none;
     height: 50px;
-    width:100px;
+    width: 100px;
     color: white;
     border-radius: 4px;
     font-weight: bold;
     margin-left: 900px;
 }
 
-.btn:hover{
+.btn:hover {
     background: white;
     border: 1px solid;
     color: black
 }
 
-.btn1{
+.btn1 {
     border: none;
     outline: none;
     height: 50px;
-    width:100px;
+    width: 100px;
     color: white;
     border-radius: 4px;
     font-weight: bold;
 }
 
-.btn1:hover{
+.btn1:hover {
     background: white;
     border: 1px solid;
     color: black
 }
 
-.container-review{
+.container-review {
     margin-left: 30px;
     margin-right: 30px;
 }
 
-.btn2{
+.btn2 {
     border: none;
     outline: none;
     height: 50px;
-    width:100px;
+    width: 100px;
     color: white;
     border-radius: 4px;
     font-weight: bold;
-    margin-left:10px;
+    margin-left: 10px;
 }
 
-.btn2:hover{
+.btn2:hover {
     background: white;
     border: 1px solid;
     color: black
 }
 
-#time-up{
+#time-up {
     background: #F2DEDE;
     color: #A94442;
     padding: 10px;
@@ -136,4 +136,27 @@ body {
     border-radius: 5px;
     margin-top: 100px;
     font-weight: bold;
+}
+
+.error {
+    background: #F2DEDE;
+    color: #A94442;
+    padding: 10px;
+    width: 90%;
+    height: fit-content;
+    border-radius: 5px;
+    margin: 20px 0px auto;
+    font-weight: lighter;
+}
+
+#btn-error{
+    float:right;
+    background-color: #ccc;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0.5px 10px;
+    cursor: pointer;
+    color: red;
 }

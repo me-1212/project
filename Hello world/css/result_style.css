@@ -1,0 +1,85 @@
+body {
+    overflow-x: hidden;
+}
+
+.btn {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 7px;
+}
+
+.green {
+    background-color: #199319;
+    margin-left: 650px;
+    margin-top: 30px;
+    width: 150px;
+}
+
+.red {
+    background-color: red;
+    margin-left: 650px;
+    margin-top: 30px;
+    width: 150px;
+}
+
+.red:hover,
+.green:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+#header {
+    background: #0A2558;
+    transition: all 0.5s;
+    z-index: 997;
+    padding: 20px 0;
+    height: 100px;
+}
+
+#header .row {
+    margin: 8px;
+}
+
+#header .row h3 {
+    font-weight: bold;
+    font-size: 24px;
+    color: white;
+    margin-left: 35px;
+    margin-top: -20px;
+}
+
+#header .row .btn {
+    text-decoration: none;
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 80px;
+    background-color: white;
+    color: black;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-left: 1300px;
+    margin-top: -30px;
+}
+
+#header .row .btn:hover {
+    background: white;
+    border: 1px solid;
+    color: #96bbff;
+}
+
+#status-text {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 100px;
+    text-align: center;
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
