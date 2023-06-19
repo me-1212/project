@@ -1,13 +1,13 @@
 <?php
 // connect to the database
-    include "connection.php";
+include "connection.php";
 
-    $sql = "SELECT * FROM res";
-    $result = mysqli_query($conn, $sql);
-    $books = mysqli_fetch_all($result, MYSQLI_ASSOC);
+$sql = "SELECT * FROM res";
+$result = mysqli_query($conn, $sql);
+$books = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 
-    // Uploads files
+// Uploads files
 if (isset($_POST['save'])) { // if save button on the form is clicked
     // name of the uploaded file
     $filename = $_FILES['myfile']['name'];
@@ -28,19 +28,18 @@ if (isset($_POST['save'])) { // if save button on the form is clicked
     $file = $_FILES['myfile']['tmp_name'];
     $size = $_FILES['myfile']['size'];
 
-    if(empty( $filename)){
+    if (empty($filename)) {
         header("Location:upload_form.php?msg=Please choose file.");
-    }
-    else if (!in_array($extension, ['pdf', 'docx'])) {
+    } else if (!in_array($extension, ['pdf', 'docx'])) {
         header("Location:upload_form.php?msg=You file extension must be .pdf or .docx");
     } elseif ($_FILES['myfile']['size'] > 100000000) { // file shouldn't be larger than 100Megabyte
-        header("Location:upload_form.php?msg=File too large! Limit is 100MB!"); 
+        header("Location:upload_form.php?msg=File too large! Limit is 100MB!");
     } else {
         // move the uploaded (temporary) file to the specified destination
         if (move_uploaded_file($file, $destination)) {
             $sql = "INSERT INTO res (Title, File_path, Size, Typ, Admin_id) VALUES ('$filename', '$destination', $size, '$type','$admin_id')";
             if (mysqli_query($conn, $sql)) {
-                header("Location:upload_form.php?msg=File is successfully uploaded!");
+                header("Location:upload_form.php?msgs=File is successfully uploaded!");
             }
         } else {
             header("Location:upload_form.php?msg=Failed to upload file.");

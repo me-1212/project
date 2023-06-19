@@ -1,14 +1,20 @@
 <?php
-    $HOST = "localhost";
-    $USERNAME = "root";
-    $PASS = "";
-    $DATABASE = "sample";
 
-    $conn = mysqli_connect($HOST, $USERNAME, $PASS, $DATABASE);
+// Set host name
+$HOST = "localhost";
+// Set username
+$USERNAME = "root";
+// Set password
+$PASS = "";
+// Set database name
+$DATABASE = "sample";
 
-    if(mysqli_connect_errno())
-    {
-        echo "Connection Failed. ".mysqli_connect_errno();
-        exit();
-    }
+// Establish the connection
+$conn = mysqli_connect($HOST, $USERNAME, $PASS, $DATABASE);
+
+// Handle if error occurs during connecting
+if (mysqli_connect_errno()) {
+    echo "Connection Failed. " . mysqli_connect_errno();
+    exit();
+}
 ?>

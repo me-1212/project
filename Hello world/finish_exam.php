@@ -13,20 +13,23 @@ if (!isset($_SESSION['started'])) {
 }
 
 // Get the exam ID
-$exam_id = $_SESSION['exam_id']; 
+$exam_id = $_SESSION['exam_id'];
 
 // Get the user ID
-$user_id =  $_SESSION['student_id']; 
+$user_id = $_SESSION['student_id'];
 
 // Get the score
 $score = $_SESSION['score'];
 
 // Insert the score into the results table
 $query = "INSERT INTO result (Exam_id, Registration_no, Score) VALUES ('$exam_id', '$user_id', $score)";
-mysqli_query($conn, $query);
+$result = mysqli_query($conn, $query);
 
-// End the session
+if(!$result){
+}
+else{
+    // End the session
 session_destroy();
-
 header('Location: home.html');
+}
 ?>
