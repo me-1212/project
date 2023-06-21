@@ -336,7 +336,6 @@ h6 {
 }
 
 @media (min-width: 1024px) {
-
   #hero .carousel-control-prev,
   #hero .carousel-control-next {
     width: 5%;
@@ -382,7 +381,7 @@ section {
   width: 120px;
   height: 1px;
   display: inline-block;
-  background: #e6636a;
+  background: #556270;
   margin: 4px 10px;
 }
 
@@ -408,10 +407,9 @@ section {
   height: 40px;
 }
 
-
 .services .icon-box i {
   float: left;
-  color: #d9232d;
+  color: #556270;
   font-size: 30px;
 }
 
@@ -433,8 +431,24 @@ section {
   font-size: 14px;
 }
 
+#id{
+  display: flex;
+}
+
+#reading{
+  width: 50%; 
+  vertical-align: top; 
+  float: left;
+}
+
+#exam{
+  width: 50%; 
+  vertical-align: top; 
+  float: right;
+}
+
 .services .icon-box:hover h4 a {
-  color: #d9232d;
+  color: #d3dae2;
 }
 
 .btn-get-started {
@@ -451,7 +465,7 @@ section {
   animation-delay: 0.8s;
   background: #d9232d;
   width: 150px;
-  margin-left: 600px;
+  margin-left: 500px;
 }
 
 .btn-get-started:hover {

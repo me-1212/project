@@ -6,7 +6,11 @@ body {
     font-size: 60px;
     font-weight: bold;
     text-align: right;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    /* position:fixed; */
+    float: right;
+    z-index: 999;
 }
 
 .container-fluid {
@@ -81,7 +85,7 @@ body {
     color: white;
     border-radius: 4px;
     font-weight: bold;
-    margin-left: 900px;
+    margin-left: 830px;
 }
 
 .btn:hover {
