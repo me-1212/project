@@ -58,6 +58,7 @@ include "connection.php";
 
 
   <!-- Reading material section -->
+  <section id=content>
   <section id="reading" class="services">
     <div class="container">
       <div class="row">
@@ -79,7 +80,7 @@ include "connection.php";
                 </svg>
               </i>
               <a href="download.php?file_id=<?php echo $book['Res_id'] ?>">
-                <h4>
+                <h4 style="color:#556270">
                   <?php
                   echo $book["Title"];
                   ?>
@@ -114,7 +115,7 @@ include "connection.php";
                 </svg>
               </i>
               <a href="download.php?file_id=<?php echo $book['Res_id'] ?>">
-                <h4>
+                <h4 style="color:#556270">
                   <?php
                   echo $book["Title"];
                   ?>
@@ -126,7 +127,7 @@ include "connection.php";
       <?php } ?>
     </div>
   </section><!-- End of Section -->
-
+      </section>
 
   <!-- ======= Footer ======= -->
   <footer id="footer">

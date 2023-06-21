@@ -35,7 +35,7 @@ $score = $_SESSION['score'];
     <link rel="stylesheet" href="css/exam_style.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <nav class="navbar">
         <div class="container-fluid">
             <h1 class="navbar-brand" href="#">
                 <?php

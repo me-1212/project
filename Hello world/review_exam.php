@@ -158,6 +158,9 @@ $score = $_SESSION['score'];
         // Set the end time of the exam
         var endTime = <?php echo $end_time; ?> * 1000;
 
+        // Check if the "alertDisplayed" cookie has been set
+        var alertDisplayed = (document.cookie.indexOf('alertDisplayed') != -1);
+
         // Update the timer every second
         var timerId = setInterval(function () {
             // Get the current time
@@ -173,6 +176,13 @@ $score = $_SESSION['score'];
             // Update the timer element with the time remaining
             timerElement.innerHTML = minutes + "m " + seconds + "s ";
 
+            // check if 7 second is left and alert
+            if(timeRemaining <= (7 * 1000) && !alertDisplayed){
+                alert("You have left with 7 seconds!\nካልዎት ሰአት ላይ 7 ሰከንድ ቀርቶዎታል!");
+                setCookie('alertDisplayed', 'true', 3);
+                alertDisplayed = true; // set the flag to true to indicate that the alert has been displayed
+            }
+
             // Stop the timer when time is up
             if (timeRemaining < 0) {
                 clearInterval(timerId);
@@ -181,6 +191,17 @@ $score = $_SESSION['score'];
                 window.location.href = "time_up.php?id=<?php echo $exam_id; ?>";
             }
         }, 1000);
+
+        // Function to set a cookie
+        function setCookie(name, value, min) {
+            var expires = "";
+            if (min) {
+                var date = new Date();
+                date.setTime(date.getTime() + (min * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
     </script>
 </body>
 </html>

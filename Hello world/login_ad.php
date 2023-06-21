@@ -9,7 +9,6 @@
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link href="css/log1.css" rel="stylesheet">
 </head>
-
 <body style="background: url(res/modal1.jpg) no-repeat center center fixed; -webkit-background-size: cover;
                 -moz-background-size: cover; -o-background-size: cover; background-size: cover; overflow: hidden">
     <section class="Form my-4 mx-5">
@@ -74,5 +73,4 @@
         </div>
     </section>
 </body>
-
 </html>

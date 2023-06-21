@@ -19,7 +19,7 @@ if (isset($_POST['login'])) {
         if ($result && mysqli_num_rows($result) == 1) {
             // If username and password is correct, go to face recognition module
             $python_script = 'faces.py';
-            $python_interpreter = 'C:\Users\ETHIOPIA\AppData\Local\Programs\Python\Python311\python.exe';
+            $python_interpreter = 'C:/Users/Kal/AppData/Local/Programs/Python/Python311/python.exe';
             $command = escapeshellcmd("$python_interpreter $python_script");
             // Execute the face recognition python file
             $output = shell_exec($command);

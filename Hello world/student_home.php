@@ -8,7 +8,7 @@ session_start();
 
 <head>
   <meta charset="UTF-8">
-  <title> Online Examination </title>
+  <title> Online Examination System</title>
   <link rel="stylesheet" href="css/admin_dash.css">
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -36,7 +36,7 @@ session_start();
         </a>
       </li>
       <li>
-        <a href="take_exam1.php?username=<?php echo $_GET['username']; ?>">
+        <a href="take_exam1.php?username=<?php echo $_GET['username']; ?>" title="ፈተና ለመፈተን">
           <i class="bi bi-question-octagon">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
               class="bi bi-question-octagon" viewBox="0 0 16 16">
@@ -50,7 +50,7 @@ session_start();
         </a>
       </li>
       <li>
-        <a href="news.php">
+        <a href="news.php" title="ዜና ለማየት">
           <i class="bi bi-newspaper">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-newspaper"
               viewBox="0 0 16 16">
@@ -64,7 +64,7 @@ session_start();
         </a>
       </li>
       <li>
-        <a href="res.php">
+        <a href="res.php" title="ፋይል ለማግኘት">
           <i class="bi bi-book">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book"
               viewBox="0 0 16 16">
@@ -76,7 +76,7 @@ session_start();
         </a>
       </li>
       <li>
-        <a href="view_schedule.php?username=<?php echo $_GET['username']; ?>">
+        <a href="view_schedule.php?username=<?php echo $_GET['username']; ?>" title="የፈተና ፕሮግራም ለማየት">
           <i class="bi bi-calendar">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar"
               viewBox="0 0 16 16">
@@ -88,7 +88,7 @@ session_start();
         </a>
       </li>
       <li>
-        <a href="view_result.php?username=<?php echo $_GET['username']; ?>">
+        <a href="view_result.php?username=<?php echo $_GET['username']; ?>" title="ዉጤት ለማየት">
           <i class="bi bi-file-check">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-check"
               viewBox="0 0 16 16">
@@ -102,7 +102,7 @@ session_start();
         </a>
       </li>
       <li class="log_out">
-        <a href="home.html">
+        <a href="home.html" title="ከአካዉንት ለመዉጣት">
           <i class='bx bx-log-out'></i>
           <span class="links_name">Log out</span>
         </a>

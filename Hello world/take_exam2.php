@@ -42,12 +42,14 @@ if (!isset($_SESSION['started'])) {
 
     // Shuffle the choices for each question
     foreach ($questions as &$question) {
-        $choices = array($question['Choice_1'], $question['Choice_2'], $question['Choice_3'], $question['Choice_4']);
+        $choices = array();
+        for ($i = 1; $i <= 4; $i++) {
+            $choices[] = $question['Choice_' . $i];
+        }
         shuffle($choices);
-        $question['Choice_1'] = $choices[0];
-        $question['Choice_2'] = $choices[1];
-        $question['Choice_3'] = $choices[2];
-        $question['Choice_4'] = $choices[3];
+        for ($i = 1; $i <= 4; $i++) {
+            $question['Choice_' . $i] = $choices[$i - 1];
+        }
     }
 
     // Save the shuffled questions in the session
@@ -151,6 +153,7 @@ $question = $_SESSION['questions'][$permuted_index];
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Online Examination System</title>
     <meta charset="utf-8">
@@ -158,6 +161,7 @@ $question = $_SESSION['questions'][$permuted_index];
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/exam_style.css">
 </head>
+
 <body>
     <nav class="navbar">
         <div class="container-fluid">
@@ -208,7 +212,7 @@ $question = $_SESSION['questions'][$permuted_index];
             <div class="row">
                 <?php
                 if (isset($error)) {
-                    ?>
+                ?>
                     <p class="error">
                         <?php echo $error; ?>
                         <button id="btn-error" type="button" onclick="document.getElementsByClassName('error')[0].style.display = 'none';">X</button>
@@ -223,29 +227,25 @@ $question = $_SESSION['questions'][$permuted_index];
             </p>
             <form method="post">
                 <div class="form-check mb-3">
-                    <input class="form-check-input" type="radio" name="answer" id="choice1"
-                        value="<?php echo $question['Choice_1']; ?>">
+                    <input class="form-check-input" type="radio" name="answer" id="choice1" value="<?php echo $question['Choice_1']; ?>">
                     <label class="form-check-label" for="choice1">
                         <?php echo $question['Choice_1']; ?>
                     </label>
                 </div>
                 <div class="form-check mb-3">
-                    <input class="form-check-input" type="radio" name="answer" id="choice2"
-                        value="<?php echo $question['Choice_2']; ?>">
+                    <input class="form-check-input" type="radio" name="answer" id="choice2" value="<?php echo $question['Choice_2']; ?>">
                     <label class="form-check-label" for="choice2">
                         <?php echo $question['Choice_2']; ?>
                     </label>
                 </div>
                 <div class="form-check mb-3">
-                    <input class="form-check-input" type="radio" name="answer" id="choice3"
-                        value="<?php echo $question['Choice_3']; ?>">
+                    <input class="form-check-input" type="radio" name="answer" id="choice3" value="<?php echo $question['Choice_3']; ?>">
                     <label class="form-check-label" for="choice3">
                         <?php echo $question['Choice_3']; ?>
                     </label>
                 </div>
                 <div class="form-check mb-3">
-                    <input class="form-check-input" type="radio" name="answer" id="choice4"
-                        value="<?php echo $question['Choice_4']; ?>">
+                    <input class="form-check-input" type="radio" name="answer" id="choice4" value="<?php echo $question['Choice_4']; ?>">
                     <label class="form-check-label" for="choice4">
                         <?php echo $question['Choice_4']; ?>
                     </label>
@@ -272,14 +272,14 @@ $question = $_SESSION['questions'][$permuted_index];
         // Set the time at which 25% of the total time has been used
         var quarterTime = endTime - duration / 4 * 1000;
 
-        // Initialize a boolean variable to keep track of whether the alert has already been displayed
-        var alertDisplayed = false;
+        // Check if the "alertDisplayed" cookie has been set
+        var alertDisplayed = (document.cookie.indexOf('alertDisplayed') != -1);
 
-        // Initialize a boolean variable to keep track of whether the alert for 25% used has already been displayed
-        var alertQuarterDisplayed = false;
+        // Check if the "alertQuarterDisplayed" cookie has been set
+        var alertQuarterDisplayed = (document.cookie.indexOf('alertQuarterDisplayed') != -1);
 
         // Update the timer every second
-        var timerId = setInterval(function () {
+        var timerId = setInterval(function() {
             // Get the current time
             var currentTime = new Date().getTime();
 
@@ -295,13 +295,15 @@ $question = $_SESSION['questions'][$permuted_index];
 
             // Check if 50% of the time has been used and the alert has not been displayed yet
             if (currentTime >= halfTime && !alertDisplayed) {
-                alert("You have used 50% of the time for the exam.");
+                alert("You have used 50% of the time for the exam!\nካልዎት ሰአት ላይ ግማሹን ተጠቅመዋል!");
+                setCookie('alertDisplayed', 'true', 3);
                 alertDisplayed = true; // set the flag to true to indicate that the alert has been displayed
             }
 
             // Check if 25% of the time has been used and the alert has not been displayed yet
             if (currentTime >= quarterTime && !alertQuarterDisplayed) {
-                alert("You have used 25% of the time for the exam.");
+                alert("You have used 25% of the time for the exam!\nካልዎት ሰአት ላይ ሩቡ ቀርቶዎታል!");
+                setCookie('alertQuarterDisplayed', 'true', 3);
                 alertQuarterDisplayed = true; // set the flag to true to indicate that the alert has been displayed
             }
 
@@ -313,6 +315,18 @@ $question = $_SESSION['questions'][$permuted_index];
                 window.location.href = "time_up.php?id=<?php echo $exam_id; ?>";
             }
         }, 1000);
+
+        // Function to set a cookie
+        function setCookie(name, value, min) {
+            var expires = "";
+            if (min) {
+                var date = new Date();
+                date.setTime(date.getTime() + (min * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
     </script>
 </body>
+
 </html>

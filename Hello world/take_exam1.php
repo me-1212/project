@@ -27,7 +27,7 @@ $user = $_GET['username'];
         $query = "SELECT * FROM exam WHERE `Status` = 1";
         $result = mysqli_query($conn, $query);
         $exam = mysqli_fetch_assoc($result);
-        header("location:exam_rule.php?id=$exam[Exam_id]&user=$user");
+        header("location:list.php?user=$user");
         ?>
         <?php
         //if no exam is active, display error message
