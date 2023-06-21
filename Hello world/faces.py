@@ -47,7 +47,7 @@ while True:
             break
 
         # Save the region of interest as an image
-        img_item = "my-image.png"
+        img_item = "image-cap.png"
         cv2.imwrite(img_item, roi_color)
 
         # Draw a rectangle around the face in the frame

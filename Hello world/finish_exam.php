@@ -26,10 +26,13 @@ $query = "INSERT INTO result (Exam_id, Registration_no, Score) VALUES ('$exam_id
 $result = mysqli_query($conn, $query);
 
 if(!$result){
+    // End the session
+    session_destroy();
+    header('Location: final.php?msg=1');
 }
 else{
     // End the session
-session_destroy();
-header('Location: home.html');
+    session_destroy();
+    header('Location: final.php?msg=2');
 }
 ?>

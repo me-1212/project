@@ -31,7 +31,7 @@ include 'connection.php';
         </a>
       </li>
       <li>
-        <a href="upload_QAs_list.php">
+        <a href="upload_QAs_list.php" title="ጥያቄ ያስገቡ">
           <i class="bi bi-question-octagon">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
               class="bi bi-question-octagon" viewBox="0 0 16 16">
@@ -45,7 +45,7 @@ include 'connection.php';
         </a>
       </li>
       <li>
-        <a href="Post_news_form.php">
+        <a href="Post_news_form.php" title="ዜና ያስገቡ">
           <i class="bi bi-newspaper">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-newspaper"
               viewBox="0 0 16 16">
@@ -59,7 +59,7 @@ include 'connection.php';
         </a>
       </li>
       <li>
-        <a href="upload_form.php">
+        <a href="upload_form.php" title="ፋይል ያስገቡ">
           <i class="bi bi-book">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book"
               viewBox="0 0 16 16">
@@ -71,7 +71,7 @@ include 'connection.php';
         </a>
       </li>
       <li>
-        <a href="generate_report.php">
+        <a href="generate_report.php" title="ሪፖርት ለማየት">
           <i class="bi bi-flag">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-flag"
               viewBox="0 0 16 16">
@@ -83,7 +83,7 @@ include 'connection.php';
         </a>
       </li>
       <li>
-        <a href="create_schedule.php">
+        <a href="create_schedule.php" title="የፈተና ፕሮግራም ያስገቡ">
           <i class="bi bi-calendar">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar"
               viewBox="0 0 16 16">
@@ -95,7 +95,7 @@ include 'connection.php';
         </a>
       </li>
       <li>
-        <a href="activate_exam.php">
+        <a href="activate_exam.php" title="ፈተና ያስጀምሩ">
           <i class="bi bi-skip-start-circle">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
               class="bi bi-skip-start-circle" viewBox="0 0 16 16">
@@ -108,7 +108,7 @@ include 'connection.php';
         </a>
       </li>
       <li>
-        <a href="post_result.php">
+        <a href="post_result.php" title="ዉጤት ይልቀቁ">
           <i class="bi bi-file-check">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-check"
               viewBox="0 0 16 16">
@@ -122,7 +122,7 @@ include 'connection.php';
         </a>
       </li>
       <li class="log_out">
-        <a href="home.html">
+        <a href="home.html" title="ከአካዉንት ለመዉጣት">
           <i class='bx bx-log-out'></i>
           <span class="links_name">Log out</span>
         </a>

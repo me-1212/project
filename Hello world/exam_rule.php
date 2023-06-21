@@ -13,7 +13,8 @@ session_destroy();
 include 'connection.php';
 
 $user = $_GET['user'];
-$id = $_GET['id'];
+$id = $_GET['subject'];
+
 $query = "SELECT * FROM exam WHERE Exam_id = '$id'";
 $result = mysqli_query($conn, $query);
 $exam = mysqli_fetch_assoc($result);

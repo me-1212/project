@@ -30,7 +30,7 @@ include 'connection.php';
                 </svg>
             </i>
             <h3 class="topic">Display QAs</h3>
-            <a href="admin_home.php" class="btn">Back</a>
+            <a href="upload_QAs_list.php" class="btn">Back</a>
         </div>
     </header>
     <section id="up">
