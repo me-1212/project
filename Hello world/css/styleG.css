@@ -4,7 +4,7 @@
   z-index: 997;
   padding: 20px 0;
   height: 100px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   overflow: hidden;
 }
 
@@ -17,7 +17,7 @@
   font-size: 28px;
   color: white;
   margin-left: 35px;
-  margin-top: -25px;
+  margin-top: -5px;
   display: inline;
 }
 
@@ -32,7 +32,7 @@
   margin-left: 1200px;
   height: 40px;
   width: 100px;
-  margin-top: -30px;
+  margin-top: -5px;
 }
 
 #header .row .btn:hover {
@@ -41,15 +41,3 @@
   color: #96bbff
 }
 
-table {
-  border-collapse: collapse;
-  margin-top: 30px;
-  margin-left: 50px;
-  border: 1;
-}
-
-table tr,
-th,
-td {
-  padding: 10px;
-}
