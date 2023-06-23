@@ -22,7 +22,7 @@ $user_id = $_SESSION['student_id'];
 $score = $_SESSION['score'];
 
 // Insert the score into the results table
-$query = "INSERT INTO result (Exam_id, Registration_no, Score) VALUES ('$exam_id', '$user_id', $score)";
+$query = "INSERT INTO result (Exam_id, Registration_no, Score, 'Year') VALUES ('$exam_id', '$user_id', $score, date('Y'))";
 $result = mysqli_query($conn, $query);
 
 if(!$result){
