@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 19, 2023 at 12:34 PM
+-- Generation Time: Jun 23, 2023 at 09:32 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -59,8 +59,8 @@ CREATE TABLE `exam` (
 --
 
 INSERT INTO `exam` (`Exam_id`, `Exam_name`, `No_of_ques`, `Stream`, `Time`, `Status`) VALUES
-('Eng', 'English', 5, 'Both', 1, 0),
-('Sat', 'Scholastic Aptitude Test', 5, 'Both', 120, 1),
+('Eng', 'English', 5, 'Both', 1, 1),
+('Sat', 'Scholastic Aptitude Test', 5, 'Both', 120, 0),
 ('Math_N', 'Mathematics for Natural Science', 3, 'Natural', 180, 0),
 ('Math_S', 'Mathematics for Social Science', 3, 'Social', 180, 0),
 ('Bio', 'Biology', 5, 'Natural', 120, 0),
@@ -122,7 +122,7 @@ INSERT INTO `question` (`Exam_id`, `Question_id`, `Question`, `Choice_1`, `Choic
 ('Eng', 1, 'He is ........ now.', 'studying', 'studies', 'study', 'studied', 'studying'),
 ('Eng', 2, 'The man killed the dog. the passive form of this s...	', 'The man was killed by dog.	', 'The dog was killed by the man.	', 'The dog is killed by the man.	', 'The dog killed by the man.', 'The dog was killed by the man.'),
 ('Eng', 3, 'If I ...... you, I would tell you.	', 'am', 'were	', 'will	', 'was	', 'were'),
-('Eng', 4, 'The book is ........ the table.	', 'at	', 'in	', 'on	', 'after	', 'on'),
+('Eng', 4, 'The book is ......... the table.', 'at', 'under', 'from', 'after', 'under'),
 ('Eng', 5, '.......sun rises in ....... east.	', 'the.....a	', 'a.....an	', 'the.....an	', 'the ......the	', 'the ......the');
 
 -- --------------------------------------------------------
@@ -174,16 +174,17 @@ CREATE TABLE `result` (
   `Registration_no` varchar(15) NOT NULL,
   `Exam_id` varchar(15) NOT NULL,
   `Score` int(11) NOT NULL,
-  `Status` int(1) NOT NULL DEFAULT 0
+  `Status` int(1) NOT NULL DEFAULT 0,
+  `Year` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `result`
 --
 
-INSERT INTO `result` (`Registration_no`, `Exam_id`, `Score`, `Status`) VALUES
-('10101050', 'Eng', 3, 0),
-('10237987', 'Eng', 5, 0);
+INSERT INTO `result` (`Registration_no`, `Exam_id`, `Score`, `Status`, `Year`) VALUES
+('10101050', 'Eng', 3, 1, 2023),
+('10237987', 'Eng', 5, 1, 2023);
 
 -- --------------------------------------------------------
 
@@ -245,7 +246,7 @@ INSERT INTO `student` (`Name`, `Registration_number`, `Username`, `Pass`, `Strea
 ('Abebe Tamrat Bihon', 10101050, 'NS_ATB_15', 123, 'Natural', 11, 1, 6, '\"images\\NS_ATB_15\\1.jpg\"', 'M', 'No', 1, 'Mekele', 'English\r\nMathematics for natural science\r\nSAT\r\nBiology\r\nChemistry\r\nPhysics\r\nCivics and ethical education'),
 ('Nebil Nessiro Seid', 10203456, 'NS_NNS_15', 3456, 'Natural', 4, 3, 3, '\"images\\NS_NNS_15\\1.jpg\"', 'M', 'No', 5, 'Dessie', 'English\r\nMathematics for natural science\r\nSAT\r\nBiology\r\nChemistry\r\nPhysics\r\nCivics and ethical education\r\n'),
 ('Hana Habtamu Bekele', 10234523, 'SS_HHB_15', 4523, 'Social', 8, 1, 6, '\"images\\SS_HHB_15\\1.jpg\"', 'F', 'No', 5, 'Adwa', 'English\r\nMathematics for social science\r\nSAT\r\nBusiness\r\nGeography\r\nHistory\r\nCivics and ethical education\r\n'),
-('Nitsuh Temesgen Hailu', 10237987, 'SS_NTH_15', 7987, 'Social', 4, 1, 3, '\"images\\SS_NTH_15\\5.jpg\"', 'F', 'No', 5, 'Aksum', 'English\r\nMathematics for social science\r\nSAT\r\nBusiness\r\nGeography\r\nHistory\r\nCivics and ethical education\r\n'),
+('Nitsuh Temesgen Hailu', 10237987, 'SS_NTH_15', 7987, 'Social', 4, 1, 3, '\"images\\SS_HHB_15\\1.jpg\"', 'F', 'No', 5, 'Aksum', 'English\r\nMathematics for social science\r\nSAT\r\nBusiness\r\nGeography\r\nHistory\r\nCivics and ethical education\r\n'),
 ('Nejat Nuer Mohammed', 10245874, 'NS_NNM_15', 5874, 'Natural', 8, 3, 6, '\"images\\NS_NNM_15\\2.jpg\"', 'F', 'No', 3, 'Bahirdar', 'English\r\nMathematics for natural science\r\nSAT\r\nBiology\r\nChemistry\r\nPhysics\r\nCivics and ethical education\r\n'),
 ('Melat Teshome Belayneh', 10671212, 'SS_MTB_15', 1212, 'Social', 12, 0, 6, '\"images\\SS_MTB_15\\1.jpg\"', 'F', 'No', 0, 'Addis Ababa', 'English\r\nMathematics for social science\r\nSAT\r\nBusiness\r\nGeography\r\nHistory\r\nCivics and ethical education\r\n'),
 ('Zelalem Yitagesu Dagm', 10876790, 'SS_ZYD_15', 6790, 'Social', 6, 0, 3, '\"images\\SS_ZYT_15\\3.jpg\"', 'M', 'No', 0, 'Addis Ababa', 'English\r\nMathematics for social science\r\nSAT\r\nBusiness\r\nGeography\r\nHistory\r\nCivics and ethical education\r\n'),
