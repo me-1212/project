@@ -51,37 +51,37 @@ include 'connection.php';
         function getId(val) {
             switch (val) {
                 case 'English':
-                    location.href = "upload_QAs_form.php?id=Eng";
+                    location.href = "question.php?id=Eng";
                     break;
                 case 'Scholastic Aptitude Test':
-                    location.href = "upload_QAs_form.php?id=Sat";
+                    location.href = "question.php?id=Sat";
                     break;
                 case 'Mathematics for Natural Science':
-                    location.href = "upload_QAs_form.php?id=Math_N";
+                    location.href = "question.php?id=Math_N";
                     break;
                 case 'Mathematics for Social Science':
-                    location.href = "upload_QAs_form.php?id=Math_S";
+                    location.href = "question.php?id=Math_S";
                     break;
                 case 'Biology':
-                    location.href = "upload_QAs_form.php?id=Bio";
+                    location.href = "question.php?id=Bio";
                     break;
                 case 'Chemistry':
-                    location.href = "upload_QAs_form.php?id=Chm";
+                    location.href = "question.php?id=Chm";
                     break;
                 case 'Physics':
-                    location.href = "upload_QAs_form.php?id=Phy";
+                    location.href = "question.php?id=Phy";
                     break;
                 case 'Civics and Ethical Education':
-                    location.href = "upload_QAs_form.php?id=Civ";
+                    location.href = "question.php?id=Civ";
                     break;
                 case 'History':
-                    location.href = "upload_QAs_form.php?id=His";
+                    location.href = "question.php?id=His";
                     break;
                 case 'Geography':
-                    location.href = "upload_QAs_form.php?id=Geo";
+                    location.href = "question.php?id=Geo";
                     break;
                 case 'Business':
-                    location.href = "upload_QAs_form.php?id=Bus";
+                    location.href = "question.php?id=Bus";
                     break;
             }
         };
